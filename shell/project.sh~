@@ -1,0 +1,15 @@
+#!/bin/sh
+Project_home=/var/www/manageit
+echo "cd $Project_home" >> ~/.bashrc
+
+cd $Project_home
+#grunt
+npm install
+npm install -g grunt-cli bower
+#composer
+COMPOSER_PROCESS_TIMEOUT=2000 composer install
+#docs
+cd $Project_home/docs/
+make html
+cd $Project_home/app/Resources/docs/
+make html
