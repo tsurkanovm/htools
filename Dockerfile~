@@ -11,11 +11,11 @@ RUN chmod +x /root/*.sh
 RUN apt-get install npm nodejs-legacy python-sphinx -y
 
 #Install capifony
-#RUN apt-get install ruby2.0 -y
-#RUN gem install capifony
+RUN apt-get install ruby2.0 -y
+RUN gem install capifony
 
 #Copy code to docker container and set up project
-COPY blog /var/www/htools
+COPY htools /var/www/htools
 RUN chmod -R www-data:www-data /var/www
 RUN /root/nginx.sh
 RUN /root/xdebug.sh
